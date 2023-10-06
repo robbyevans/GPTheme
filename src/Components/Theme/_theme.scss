@@ -1,0 +1,73 @@
+// Define basic colors and spacing for consistency
+$primary-color: #4caf50;
+$secondary-color: #ffffff;
+$box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+
+.theme-container {
+  width: 300px;
+  background-color: $secondary-color;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: $box-shadow;
+  font-family: "Arial", sans-serif;
+
+  .theme-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      color: $primary-color;
+      margin: 0;
+    }
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .color-picker {
+    margin-top: 20px;
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+
+      input[type="color"] {
+        margin-left: 10px;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .color-selector-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: $primary-color;
+    color: $secondary-color;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+
+  p {
+    margin-top: 20px;
+    font-size: 12px;
+    color: darken($primary-color, 10%);
+
+    code {
+      background-color: #f5f5f5;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+  }
+}

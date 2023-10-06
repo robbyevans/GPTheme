@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "version": "1.0.0",
-  "name": "Donut GPT",
+  "name": "GPTheme",
   "action": {
     "default_popup": "index.html"
   },

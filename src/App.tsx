@@ -1,13 +1,18 @@
+import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
 function App() {
+  const [color, setColor] = useState<string>("");
+
   const onclick = async () => {
     const [tab] = await chrome.tabs.query({ active: true });
-    chrome.scripting.executeScript({
+    chrome.scripting.executeScript<string[], void>({
       target: { tabId: tab.id! },
-      func: () => {
-        alert("Hello from my extension!");
+      args: [color],
+      func: (color) => {
+        document.body.style.backgroundColor = color;
+        // alert("Hello from my extension!");
       },
     });
   };
@@ -22,6 +27,10 @@ function App() {
       </div>
       <h1>Donut GPT</h1>
       <div className="card">
+        <input
+          type="color"
+          onChange={(e) => setColor(e.currentTarget.value)}
+        ></input>
         <button onClick={onclick}>Click</button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
